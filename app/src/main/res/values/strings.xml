@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PracticaLaravel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+    <string name="Editbt">Editar</string>
+    <string name="borrarbt">Borrar</string>
+    <string name="nombre">Nombre*</string>
+    <string name="estado">Estado*</string>
+    <string name="url">URL*</string>
+    <string name="fecha">Fecha</string>
+    <string name="precio">Precio*</string>
+    <string name="añadir">Añadir</string>
+    <string name="listar">Ver lista</string>
+    <string name="tverrorempty">La lista esta vacia</string>
+
+</resources>
