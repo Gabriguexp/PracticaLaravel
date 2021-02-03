@@ -24,7 +24,7 @@ public class EditFragment extends Fragment {
 
     Consola consola;
     ViewModel viewModel;
-    Button editBt, deletebt;
+    Button editBt, deletebt, volverbt;
     EditText nombreedit, urledit, estadoedit, fechaedit, precioedit;
     NavController navController;
     public EditFragment() {
@@ -81,5 +81,13 @@ public class EditFragment extends Fragment {
                 navController.navigate(R.id.action_editFragment_to_listaFragment);
             }
         });
+        volverbt = view.findViewById(R.id.btvolveredit);
+        volverbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_editFragment_to_listaFragment);
+            }
+        });
     }
+
 }

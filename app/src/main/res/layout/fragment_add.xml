@@ -72,4 +72,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvestadoadd" />
+
+    <Button
+        android:id="@+id/btvolveradd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btadd" />
 </androidx.constraintlayout.widget.ConstraintLayout>

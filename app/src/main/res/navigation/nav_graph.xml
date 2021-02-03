@@ -21,7 +21,11 @@
         android:id="@+id/addFragment"
         android:name="com.example.practicalaravel.view.fragment.AddFragment"
         android:label="fragment_add"
-        tools:layout="@layout/fragment_add" />
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listaFragment"
         android:name="com.example.practicalaravel.view.fragment.ListaFragment"
@@ -30,6 +34,9 @@
         <action
             android:id="@+id/action_listaFragment_to_editFragment"
             app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_listaFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
     </fragment>
     <fragment
         android:id="@+id/editFragment"

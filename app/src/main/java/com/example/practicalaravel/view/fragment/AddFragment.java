@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,8 +27,9 @@ import java.time.LocalDate;
 public class AddFragment extends Fragment {
 
     TextView tvnombreadd, tvurladd, tvestadoadd, tvprecioadd, tvfechaadd;
-    Button btadd;
+    Button btadd, btvolveradd;
     ViewModel viewModel;
+    NavController navController;
     public AddFragment() {
     }
 
@@ -46,6 +49,17 @@ public class AddFragment extends Fragment {
         tvprecioadd = view.findViewById(R.id.tvprecioadd);
         tvfechaadd = view.findViewById(R.id.tvfechaadd);
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
+        btvolveradd = view.findViewById(R.id.btvolveradd);
+        navController = Navigation.findNavController(view);
+        btvolveradd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_addFragment_to_inicioFragment);
+
+            }
+        });
+
+
         btadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.practicalaravel.R;
@@ -34,6 +37,8 @@ public class ListaFragment extends Fragment {
     private ViewModel viewModel;
     ArrayList<Consola> lista = new ArrayList<>();
     TextView tverror;
+    Button btvolverlista;
+    NavController navController;
     public ListaFragment() {
         // Required empty public constructor
     }
@@ -52,6 +57,14 @@ public class ListaFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = view.findViewById(R.id.li);
         tverror = view.findViewById(R.id.tverror);
+        btvolverlista = view.findViewById(R.id.btvolverlista);
+        navController = Navigation.findNavController(view);
+        btvolverlista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_listaFragment_to_inicioFragment);
+            }
+        });
 
         Call<ArrayList<Consola>> call = viewModel.getClient().getConsolas();
         call.enqueue(new Callback<ArrayList<Consola>>() {
