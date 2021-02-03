@@ -1,2 +1,3 @@
-# PracticaLaravel Gabriel Guerrero Expósito.
-
+ Gabriel Guerrero Expósito.
+ 
+App de la practica
