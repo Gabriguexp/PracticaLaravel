@@ -82,7 +82,7 @@ public class ListaFragment extends Fragment {
             viewModel.getMutableLiveData().observe(getActivity(), new Observer<ArrayList<Consola>>() {
                 @Override
                 public void onChanged(ArrayList<Consola> consolas) {
-                    lista.clear();
+                    newList.clear();
                     newList.addAll(consolas);
                     adapter.notifyDataSetChanged();
                 }
