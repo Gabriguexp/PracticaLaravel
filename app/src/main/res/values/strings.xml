@@ -13,5 +13,6 @@
     <string name="añadir">Añadir</string>
     <string name="listar">Ver lista</string>
     <string name="tverrorempty">La lista esta vacia</string>
+    <string name="volverbt">Volver</string>
 
 </resources>

@@ -46,7 +46,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.tvNombre.setText("Consola: "+consolaArrayList.get(position).getNombre());
         holder.tvPrecio.setText("Precio: "+consolaArrayList.get(position).getPrecio()+"€");
 
-        holder.tvFecha.setText("Fecha de compra: "+consolaArrayList.get(position).getFechaventa().toString());
+        if(!consolaArrayList.get(position).getFechaventa().toString().equalsIgnoreCase("null")){
+            holder.tvFecha.setText("Fecha de compra: "+consolaArrayList.get(position).getFechaventa().toString());
+        }
+
 
         Glide.with(context)
                 .load(consolaArrayList.get(position).getUrlpic())

@@ -11,7 +11,7 @@
         android:id="@+id/btadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/añadir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvfechaadd" />
@@ -22,22 +22,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="nombre"
+        android:hint="@string/nombre"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/tvurladd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="url"
+        android:hint="@string/url"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvprecioadd" />
+        app:layout_constraintTop_toBottomOf="@+id/tvprecioadd"
+        android:autofillHints="" />
 
 
     <EditText
@@ -45,39 +47,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="estado"
+        android:hint="@string/estado"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvurladd" />
+        app:layout_constraintTop_toBottomOf="@+id/tvurladd"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/tvprecioadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="precio"
+        android:hint="@string/precio"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvnombreadd" />
+        app:layout_constraintTop_toBottomOf="@+id/tvnombreadd"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/tvfechaadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="fecha"
+        android:hint="@string/fecha"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvestadoadd" />
+        app:layout_constraintTop_toBottomOf="@+id/tvestadoadd"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btvolveradd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Volver"
+        android:text="@string/volverbt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btadd" />
 </androidx.constraintlayout.widget.ConstraintLayout>

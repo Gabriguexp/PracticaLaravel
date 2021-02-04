@@ -79,7 +79,7 @@ public class AddFragment extends Fragment {
                     if(!fecha.isEmpty()){
                         c.setFechaventa(fecha);
                     } else{
-                        c.setFechaventa("");
+                        c.setFechaventa("null");
                     }
                     viewModel.insertConsola(c);
                     Toast.makeText(getContext(), "Consola insertada con exito", Toast.LENGTH_LONG).show();
