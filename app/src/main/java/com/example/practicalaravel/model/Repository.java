@@ -2,12 +2,17 @@ package com.example.practicalaravel.model;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 import com.example.practicalaravel.model.pojo.Consola;
 import com.example.practicalaravel.model.retrofit.ConsolaClient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,6 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Repository {
     public ConsolaClient client;
     private ArrayList<Consola> list;
+    private MutableLiveData<ArrayList<Consola>> mutableLiveData = new MutableLiveData<>();
     public Repository(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2/laravel/Practica3/public/api/")
@@ -64,23 +70,21 @@ public class Repository {
 
     }
 
-    public ArrayList<Consola> getConsolas() {
+    public void getConsolas() {
 
         Call<ArrayList<Consola>> call = client.getConsolas();
         call.enqueue(new Callback<ArrayList<Consola>>() {
             @Override
             public void onResponse(Call<ArrayList<Consola>> call, Response<ArrayList<Consola>> response) {
-                list  = response.body();
-                Log.v("xyzcode", ""+response.code());
+                mutableLiveData.setValue(response.body());
 
             }
 
             @Override
             public void onFailure(Call<ArrayList<Consola>> call, Throwable t) {
-                Log.v("xyz_getConsolas()", t.getLocalizedMessage());
             }
         });
-        return list;
+
     }
 
     public void insertConsola(Consola consola) {
@@ -119,5 +123,9 @@ public class Repository {
 
     public ConsolaClient getClient() {
         return client;
+    }
+
+    public MutableLiveData<ArrayList<Consola>> getMutableLiveData() {
+        return mutableLiveData;
     }
 }

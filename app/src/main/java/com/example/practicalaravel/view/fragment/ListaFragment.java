@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -66,50 +67,27 @@ public class ListaFragment extends Fragment {
             }
         });
 
-        Call<ArrayList<Consola>> call = viewModel.getClient().getConsolas();
-        call.enqueue(new Callback<ArrayList<Consola>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Consola>> call, Response<ArrayList<Consola>> response) {
-                lista = response.body();
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Log.v("xyz", lista.toString());
-
-                initRecycler(view);
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Consola>> call, Throwable t) {
-
-            }
-        });
-
-
+        initRecycler(view);
 
     }
     private void initRecycler(View view) {
         try{
+            viewModel.getConsolas();
             ArrayList<Consola> newList = new ArrayList<>();
-
-            for(Consola c: lista){
-                newList.add(c);
-                Log.v("xyzc", c.toString());
-            }
-            Log.v("zyx", "entro aqui");
             RecyclerAdapter adapter = new RecyclerAdapter(newList, getContext(), getView());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
             recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-            if(adapter.getItemCount() == 0){
-                tverror.setText(R.string.tverrorempty);
-            }
 
+            viewModel.getMutableLiveData().observe(getActivity(), new Observer<ArrayList<Consola>>() {
+                @Override
+                public void onChanged(ArrayList<Consola> consolas) {
+                    lista.clear();
+                    newList.addAll(consolas);
+                    adapter.notifyDataSetChanged();
+                }
+            });
         }catch (NullPointerException ex){
-            Log.v("xyz", ex.getLocalizedMessage());
         }
-
     }
 }

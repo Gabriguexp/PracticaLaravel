@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import com.example.practicalaravel.R;
 import com.example.practicalaravel.model.pojo.Consola;
 import com.example.practicalaravel.viewmodel.ViewModel;
 
-import java.time.LocalDate;
 
 
 public class AddFragment extends Fragment {
@@ -66,7 +64,14 @@ public class AddFragment extends Fragment {
                 String url = tvurladd.getText().toString();
                 String nombre = tvnombreadd.getText().toString();
                 String estado = tvestadoadd.getText().toString();
-                double precio = Double.parseDouble(tvprecioadd.getText().toString());
+                double precio = -1;
+                try{
+                    precio = Double.parseDouble(tvprecioadd.getText().toString());
+                }catch (Exception exception){
+                    Toast.makeText(getContext(), "Hay un error en el precio", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 String fecha = tvfechaadd.getText().toString();
                 if((url.isEmpty()) || nombre.isEmpty() || estado.isEmpty() || precio == 0 ){
                     Toast.makeText(getContext(), "Los campos con asterisco no pueden estar vacios", Toast.LENGTH_LONG).show();

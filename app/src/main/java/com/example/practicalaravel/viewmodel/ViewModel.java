@@ -11,6 +11,7 @@ import com.example.practicalaravel.model.pojo.Consola;
 import com.example.practicalaravel.model.retrofit.ConsolaClient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 
@@ -33,8 +34,8 @@ public class ViewModel extends AndroidViewModel {
         repository.getConsolaById(id);
     }
 
-    public ArrayList<Consola> getConsolas() {
-        return repository.getConsolas();
+    public void getConsolas() {
+        repository.getConsolas();
     }
 
     public void insertConsola(Consola consola) {
@@ -52,5 +53,9 @@ public class ViewModel extends AndroidViewModel {
 
     public void editConsola(long id, Consola consola) {
         repository.editConsola(id, consola);
+    }
+
+    public MutableLiveData<ArrayList<Consola>> getMutableLiveData() {
+        return repository.getMutableLiveData();
     }
 }
