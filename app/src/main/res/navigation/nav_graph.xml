@@ -3,19 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/inicioFragment">
+    app:startDestination="@id/InicioFragment">
 
     <fragment
-        android:id="@+id/inicioFragment"
-        android:name="com.example.practicalaravel.view.fragment.InicioFragment"
-        android:label="fragment_inicio"
-        tools:layout="@layout/fragment_inicio" >
+        android:id="@+id/AdminFragment"
+        android:name="com.example.practicalaravel.view.fragment.AdminFragment"
+        android:label="fragment_admin"
+        tools:layout="@layout/fragment_admin">
         <action
-            android:id="@+id/action_inicioFragment_to_addFragment"
+            android:id="@+id/action_AdminFragment_to_listaAdminFragment"
+            app:destination="@id/listaAdminFragment" />
+        <action
+            android:id="@+id/action_AdminFragment_to_addFragment"
             app:destination="@id/addFragment" />
         <action
-            android:id="@+id/action_inicioFragment_to_listaFragment"
-            app:destination="@id/listaFragment" />
+            android:id="@+id/action_AdminFragment_to_InicioFragment"
+            app:destination="@id/InicioFragment" />
+        <action
+            android:id="@+id/action_AdminFragment_to_adminAdminFragment"
+            app:destination="@id/adminAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -23,20 +29,20 @@
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
         <action
-            android:id="@+id/action_addFragment_to_inicioFragment"
-            app:destination="@id/inicioFragment" />
+            android:id="@+id/action_addFragment_to_AdminFragment"
+            app:destination="@id/AdminFragment" />
     </fragment>
     <fragment
-        android:id="@+id/listaFragment"
-        android:name="com.example.practicalaravel.view.fragment.ListaFragment"
+        android:id="@+id/listaAdminFragment"
+        android:name="com.example.practicalaravel.view.fragment.ListaAdminFragment"
         android:label="fragment_lista"
-        tools:layout="@layout/fragment_lista" >
+        tools:layout="@layout/fragment_listaAdmin" >
         <action
-            android:id="@+id/action_listaFragment_to_editFragment"
+            android:id="@+id/action_listaAdminFragment_to_editFragment"
             app:destination="@id/editFragment" />
         <action
-            android:id="@+id/action_listaFragment_to_inicioFragment"
-            app:destination="@id/inicioFragment" />
+            android:id="@+id/action_listaAdminFragment_to_AdminFragment"
+            app:destination="@id/AdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/editFragment"
@@ -44,7 +50,36 @@
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" >
         <action
-            android:id="@+id/action_editFragment_to_listaFragment"
-            app:destination="@id/listaFragment" />
+            android:id="@+id/action_editFragment_to_listaAdminFragment"
+            app:destination="@id/listaAdminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InicioFragment"
+        android:name="com.example.practicalaravel.view.fragment.InicioFragment"
+        tools:layout="@layout/fragment_inicio_fragment" >
+        <action
+            android:id="@+id/action_InicioFragment_to_AdminFragment"
+            app:destination="@id/AdminFragment" />
+        <action
+            android:id="@+id/action_InicioFragment_to_listaUserFragment"
+            app:destination="@id/listaUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaUserFragment"
+        android:name="com.example.practicalaravel.view.fragment.ListaUserFragment"
+        android:label="fragment_lista_user"
+        tools:layout="@layout/fragment_lista_user" >
+        <action
+            android:id="@+id/action_listaUserFragment_to_InicioFragment"
+            app:destination="@id/InicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAdminFragment"
+        android:name="com.example.practicalaravel.view.fragment.AdminAdminFragment"
+        android:label="fragment_admin_admin"
+        tools:layout="@layout/fragment_admin_admin" >
+        <action
+            android:id="@+id/action_adminAdminFragment_to_AdminFragment"
+            app:destination="@id/AdminFragment" />
     </fragment>
 </navigation>

@@ -52,7 +52,7 @@ public class AddFragment extends Fragment {
         btvolveradd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_addFragment_to_inicioFragment);
+                navController.navigate(R.id.action_addFragment_to_AdminFragment);
 
             }
         });
@@ -88,6 +88,11 @@ public class AddFragment extends Fragment {
                     }
                     viewModel.insertConsola(c);
                     Toast.makeText(getContext(), "Consola insertada con exito", Toast.LENGTH_LONG).show();
+                    tvurladd.setText("");
+                    tvnombreadd.setText("");
+                    tvestadoadd.setText("");
+                    tvprecioadd.setText("");
+                    tvfechaadd.setText("");
                 }
 
             }

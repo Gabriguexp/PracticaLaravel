@@ -55,17 +55,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 .load(consolaArrayList.get(position).getUrlpic())
                 .error(R.drawable.er404)
                 .into(holder.ivConsola);
+        if(ViewModel.currentAdmin != null){
+            holder.parent.setOnClickListener(new View.OnClickListener() {
+                final NavController navController = Navigation.findNavController(view);
 
-        holder.parent.setOnClickListener(new View.OnClickListener() {
-            final NavController navController = Navigation.findNavController(view);
+                @Override
+                public void onClick(View v) {
+                    ViewModel.current =consolaArrayList.get(position);
+                    navController.navigate(R.id.action_listaAdminFragment_to_editFragment);
 
-            @Override
-            public void onClick(View v) {
-                ViewModel.current =consolaArrayList.get(position);
-                navController.navigate(R.id.action_listaFragment_to_editFragment);
+                }
+            });
+}
 
-            }
-        });
     }
 
     @Override

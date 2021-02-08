@@ -14,5 +14,17 @@
     <string name="listar">Ver lista</string>
     <string name="tverrorempty">La lista esta vacia</string>
     <string name="volverbt">Volver</string>
+    <string name="reparacion">Reparacion</string>
+    <string name="welcomeadmin">Bienvenido Adminitrador, desde aquí podras añadir las consolas o editar y borrar las existentes</string>
+    <string name="administrarbt">Administrar</string>
+    <string name="addreparacionbt">Añadir Reparacion</string>
+    <string name="bienvenidatv">Bienvenido al emporio de las consolas su tienda de confianza. Desde aquí podrá acceder a la lista de consolas en catalogo o si tiene usuario de administrador añadir o editar las consolas a nuestra disposicion.</string>
+    <string name="admin">Admin</string>
+    <string name="usuario">Usuario</string>
+    <string name="insertadmin">Añadir Administrador</string>
+    <string name="contraseña">contraseña</string>
+    <string name="tventraradmin">Introduzca sus credenciales para acceder al modo administrador</string>
+    <string name="Añadiradministrador">Añadir administrador</string>
+    <string name="volvermenubt">Volver al menu principal</string>
 
 </resources>
